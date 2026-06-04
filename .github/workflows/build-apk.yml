@@ -35,6 +35,15 @@ jobs:
     - name: Get dependencies
       run: flutter pub get
     
+    - name: Fix gradlew permission
+      run: chmod +x android/gradlew
+    
+    - name: Create local.properties
+      run: echo "sdk.dir=$ANDROID_HOME" > android/local.properties
+    
+    - name: Accept Android licenses
+      run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+    
     - name: Run tests
       run: flutter test
       continue-on-error: true  # 暂时允许测试失败
