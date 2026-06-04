@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(flutter create *)",
+      "Read(//c/Users/MIRROR/flutter/bin/**)",
+      "Read(//c/flutter/bin/**)",
+      "Bash(where flutter *)",
+      "Read(//mnt/c/Users/MIRROR/flutter/bin/**)",
+      "Read(//mnt/d/flutter/bin/**)",
+      "Bash(cmd.exe /c \"where flutter\")",
+      "Bash(where.exe flutter *)",
+      "Bash(cmd.exe //c \"where flutter 2>&1\")"
+    ]
+  }
+}

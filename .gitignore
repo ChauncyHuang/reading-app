@@ -1,0 +1,87 @@
+# Flutter/Dart
+.dart_tool/
+.pub/
+build/
+*.dart.js
+*.dart.js.map
+*.dart.js.deps
+*.dart.js.info.html
+*.dart_library.js
+*.js
+*.js.map
+*.firebase/
+*.pem
+*.p12
+*.key
+/android/
+/ios/
+/linux/
+/macos/
+/web/
+/windows/
+*.log
+*.lock
+
+# Android
+**/android/**/gradle-wrapper.jar
+.gradle/
+**/android/.gradle/
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+
+# iOS
+**/ios/**/*.mode1v3
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/*sync/
+**/ios/**/.sconsign2
+**/ios/**/sconsign
+**/ios/**/DerivedData/
+**/ios/**/IdeaWorkshop*
+**/ios/**/xcuserdata
+**/ios/.generated/
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/Podfile.lock
+
+# macOS
+**/macos/.generated/
+**/macos/Flutter/GeneratedPluginRegistrant.*
+**/macos/Flutter/ephemeral/
+**/macos/Podfile.lock
+
+# Linux
+**/linux/.generated/
+
+# Windows
+**/windows/.generated/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Assets
+**/assets/
+
+# Coverage
+coverage/
+*.lcov
+
+# Symbols
+**/android/app/src/main/assets/mapping.txt
+
+# Obfuscation
+**/android/app/src/main/assets/workspace/
