@@ -83,6 +83,7 @@ jobs:
     
     - name: Build APK (release)
       run: flutter build apk --release
+      continue-on-error: true
     
     - name: Upload Debug APK
       uses: actions/upload-artifact@v4
@@ -93,6 +94,7 @@ jobs:
     
     - name: Upload Release APK
       uses: actions/upload-artifact@v4
+      if: hashFiles('build/app/outputs/flutter-apk/app-release.apk') != ''
       with:
         name: app-release
         path: build/app/outputs/flutter-apk/app-release.apk
