@@ -40,7 +40,11 @@ jobs:
       run: chmod +x android/gradlew
     
     - name: Create local.properties
-      run: echo "sdk.dir=$ANDROID_HOME" > android/local.properties
+      run: |
+        FLUTTER_SDK=$(dirname $(dirname $(which flutter)))
+        echo "sdk.dir=$ANDROID_HOME" > android/local.properties
+        echo "flutter.sdk=$FLUTTER_SDK" >> android/local.properties
+        cat android/local.properties
     
     - name: Accept Android licenses
       run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
