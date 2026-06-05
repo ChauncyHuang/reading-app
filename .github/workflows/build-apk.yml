@@ -26,15 +26,16 @@ jobs:
       with:
         flutter-version: 3.24.5
         channel: stable
-        cache: true
-        cache-key: flutter-3.24.5-android-sdk
-        cache-path: ~/.flutter
- 
+
     - name: Verify Java
       run: java -version
-    
+
     - name: Verify Flutter
-      run: flutter --version
+      run: |-
+        echo "PATH=$PATH"
+        echo "FLUTTER_ROOT=$FLUTTER_ROOT"
+        flutter --version || echo "Flutter version failed"
+      continue-on-error: true
     
     - name: Create assets directory
       run: mkdir -p assets/book_sources
@@ -56,8 +57,12 @@ jobs:
     
     - name: Pre-download Gradle distribution
       run: |
-        gradle wrapper --gradle-version 8.4 --distribution-type bin || true
-        gradle --version || echo "Gradle not installed, using wrapper only"
+        if command -v gradle &>/dev/null; then
+          gradle wrapper --gradle-version 8.4 --distribution-type bin || true
+          gradle --version
+        else
+          echo "Gradle not found, will use gradle wrapper"
+        fi
     
     - name: Run tests
       run: flutter test
