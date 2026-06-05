@@ -13,23 +13,22 @@ build/
 *.pem
 *.p12
 *.key
-/android/
+*.log
+*.lock
+
+# Platform directories
 /ios/
 /linux/
 /macos/
 /web/
 /windows/
-*.log
-*.lock
 
-# Android
-**/android/**/gradle-wrapper.jar
-.gradle/
-**/android/.gradle/
-**/android/captures/
-**/android/gradlew
-**/android/gradlew.bat
-**/android/local.properties
+# Android build artifacts (ignore build dirs but allow scaffold files)
+/android/.gradle/
+/android/captures/
+/android/local.properties
+/android/app/build/
+/android/build/
 
 # iOS
 **/ios/**/*.mode1v3
