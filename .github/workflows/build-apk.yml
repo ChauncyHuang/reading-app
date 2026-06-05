@@ -33,6 +33,9 @@ jobs:
     - name: Flutter version
       run: flutter --version
     
+    - name: Create assets directory
+      run: mkdir -p assets/book_sources
+    
     - name: Get dependencies
       run: flutter pub get
     
@@ -41,9 +44,8 @@ jobs:
     
     - name: Create local.properties
       run: |
-        FLUTTER_SDK=$(dirname $(dirname $(which flutter)))
         echo "sdk.dir=$ANDROID_HOME" > android/local.properties
-        echo "flutter.sdk=$FLUTTER_SDK" >> android/local.properties
+        echo "flutter.sdk=$FLUTTER_ROOT" >> android/local.properties
         cat android/local.properties
     
     - name: Accept Android licenses
