@@ -15,11 +15,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - name: Setup Java
+    - name: Setup Java + Gradle
       uses: actions/setup-java@v4
       with:
         distribution: zulu
         java-version: 17
+        gradle: 8.4
+    
+    - name: Verify Java + Gradle
+      run: |
+        java -version
+        gradle --version
     
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
@@ -50,6 +56,11 @@ jobs:
     
     - name: Accept Android licenses
       run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+    
+    - name: Pre-download Gradle distribution
+      run: |
+        gradle wrapper --gradle-version 8.4 --distribution-type bin || true
+        gradle --version
     
     - name: Run tests
       run: flutter test
